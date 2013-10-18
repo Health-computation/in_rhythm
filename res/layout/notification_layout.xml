@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+  <ImageView
+      android:id="@+id/status_icon"
+      android:layout_width="wrap_content"
+      android:layout_height="fill_parent"
+      android:layout_alignParentLeft="true"
+      android:layout_marginLeft="-80dp"
+      android:layout_marginRight="-80dp"
+      android:contentDescription="@string/app_name"/>
+
+  <RelativeLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="2dp"
+    android:layout_toRightOf="@id/status_icon">	  
+   <!--
+      <TextView
+      android:id="@+id/accel_text"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:text="Accel On"
+      android:textColor="#000"
+      android:textSize="13sp"
+      android:textStyle="bold"
+    />
+    <TextView
+      android:id="@+id/audio_text"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/accel_text"
+      android:text="Audio On"
+      android:textColor="#000"
+      android:textSize="13sp"
+      android:textStyle="bold"/>
+    <TextView
+      android:id="@+id/location_text"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/audio_text"
+      android:text="Location On"
+      android:textColor="#000"
+      android:textSize="13sp"
+      android:textStyle="bold"/>
+      -->
+      
+      <TextView
+      android:id="@+id/notification_text"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:text="@string/app_name"
+      android:layout_marginLeft = "3dp"
+      android:textColor="#a0005000"
+      android:textSize="18sp"
+      android:textStyle="bold"
+    />
+  </RelativeLayout>
+</RelativeLayout>
+
+
+
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="?android:attr/listPreferredItemHeight" 
+	android:padding="3dp"> <ImageView android:id="@+id/image" android:layout_width="wrap_content" 
+	android:layout_height="fill_parent" android:layout_marginRight="10dp" android:src="@drawable/logo" 
+	/> <LinearLayout android:orientation="vertical" android:layout_width="0dip" 
+	android:layout_weight="1" android:layout_height="fill_parent"> <TextView 
+	android:id="@+id/audio_text" android:text="Audio On:" android:layout_width="fill_parent" 
+	android:layout_height="0dip" android:layout_weight="1" android:textColor="#000" 
+	/> <TextView android:id="@+id/accel_text" android:layout_width="fill_parent" 
+	android:layout_height="0dip" android:layout_weight="1" android:singleLine="true" 
+	android:text="Accel On:" android:textColor="#000" /> <TextView android:id="@+id/location_text" 
+	android:layout_width="fill_parent" android:layout_height="0dip" android:layout_weight="1" 
+	android:singleLine="true" android:text="Location On:" android:textColor="#000" 
+	/> <TextView android:id="@+id/raw_audio_text" android:layout_width="fill_parent" 
+	android:layout_height="0dip" android:layout_weight="1" android:singleLine="true" 
+	android:text="Raw Audio" android:textColor="#000" /> <TextView android:id="@+id/accel_text" 
+	android:text="Audio: On" android:layout_width="wrap_content" android:layout_height="fill_parent" 
+	android:textColor="#000" /> <TextView android:id="@+id/location_text" android:layout_width="wrap_content" 
+	android:text="Audio: On" android:layout_height="fill_parent" android:textColor="#000" 
+	/> <TextView android:id="@+id/raw_audio_text" android:text="Audio: On" android:layout_width="wrap_content" 
+	android:layout_height="fill_parent" android:textColor="#000" /> <TextView 
+	android:id="@+id/upload_text" android:text="Audio: On" android:layout_width="wrap_content" 
+	android:layout_height="fill_parent" android:textColor="#000" /> </LinearLayout> 
+	</LinearLayout> - -->

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ds"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:name="com.example.ds.SleepProbeApplication2"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.ds.SleepProbeActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service
+            android:name="org.bewellapp.ServiceControllers.BestSleepLib.BestSleepService"
+            android:enabled="true" />
+        <service
+            android:name="org.bewellapp.ServiceControllers.BestSleepLib.BestSleepComputationService"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="org.bewellapp.ServiceControllers.BestSleepLib.BestSleepComputationService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="org.bewellapp.ServiceControllers.AudioLib.AudioService"
+            android:enabled="true" />
+        <service
+            android:name="org.bewellapp.ServiceControllers.AudioLib.AudioDutyCycleService"
+            android:enabled="true" />
+        <service
+            android:name="org.bewellapp.DaemonService.DaemonService"
+            android:enabled="true" />
+        <service
+            android:name="org.bewellapp.ServiceControllers.AccelerometerLib.AccelerometerService"
+            android:enabled="true" />
+
+        <activity
+            android:name="com.example.ds.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.ds.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="530721140354975" />
+
+        <activity android:name="com.facebook.LoginActivity" >
+        </activity>
+        <activity
+            android:name="com.example.ds.TestActivity"
+            android:label="@string/title_activity_test" >
+        </activity>
+    </application>
+
+</manifest>

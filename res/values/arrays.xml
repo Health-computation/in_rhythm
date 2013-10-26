@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bad">#e74c3c</color>
+    <color name="okay">#f1c40f</color>
+    <color name="good">#46a1de</color>
+    <color name="white">#ffffff</color>
+    <color name="turq">#1abc9c</color>
+        <string-array name="donut_chart_colors">
+        <item>@color/bad</item>
+        <item>@color/okay</item>
+        <item>@color/good</item>
+        <item>@color/good</item>
+        <item>@color/good</item>
+    </string-array>
+    
+</resources>

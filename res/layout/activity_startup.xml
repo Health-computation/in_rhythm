@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	android:background="@color/good">
+     <TextView android:id="@id/score"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:gravity="center"
+               android:textColor="@color/white"	
+		       android:background="@color/good"	
+               android:textSize="40sp"
+               android:text="Rhythm"/>
+</LinearLayout>

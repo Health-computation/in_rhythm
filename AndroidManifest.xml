@@ -59,16 +59,18 @@
         <activity
             android:name="com.example.ds.LoginActivity"
             android:label="@string/title_activity_login"
+            android:noHistory="true"
             android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.example.ds.MainActivity"
+            android:label="@string/title_activity_main"
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.ds.MainActivity"
-            android:label="@string/title_activity_main" >
         </activity>
 
         <meta-data
@@ -80,6 +82,20 @@
         <activity
             android:name="com.example.ds.TestActivity"
             android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name="com.example.ds.BadgesActivity"
+            android:label="@string/title_activity_badges" >
+        </activity>
+        <activity
+            android:name="com.example.ds.StartupActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_startup"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="com.example.ds.ChartActivity"
+            android:label="@string/title_activity_chart" >
         </activity>
     </application>
 

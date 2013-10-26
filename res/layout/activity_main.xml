@@ -1,7 +1,91 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    tools:ignore="MergeRootFrame" />
+    android:orientation="vertical"  >
+     <com.example.ds.DonutChartView
+        android:id="@+id/donut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"/>
+     
+     <LinearLayout
+        android:id="@+id/recentData" 
+        android:layout_below="@+id/donut"
+        android:layout_height="100dp"
+        android:background="#f1c40f"
+        android:clickable="true"	
+        android:layout_width="match_parent">
+	        <TextView android:id="@id/score"
+	               android:layout_width="300dp"
+	               android:layout_height="wrap_content"
+	   			   android:paddingTop="30dp"
+	   			   android:paddingBottom="30dp"
+			       android:paddingLeft="20dp"
+	               android:textSize="30sp"
+	               android:text="Great sleeping!"/>
+
+	        <ImageView
+	            android:id="@+id/sleepDataImage"
+	            android:layout_width="64px"
+	            android:layout_height="fill_parent"
+	            android:src="@drawable/ellipsis" />
+
+      </LinearLayout>
+      
+      <LinearLayout
+        android:id="@+id/setGoal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/recentData"
+        android:background="@color/good" >
+
+        <TextView
+            android:id="@id/goal"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="Set a goal."
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/goalImage"
+            android:layout_width="64px"
+            android:layout_height="fill_parent"
+            android:src="@drawable/clock" />
+    </LinearLayout>
+    
+            <LinearLayout
+        android:id="@+id/compete"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/setGoal"
+        android:background="@color/turq" >
+
+        <TextView
+            android:id="@id/competeText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="Compete"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/competeImage"
+            android:layout_width="64px"
+            android:layout_height="fill_parent"
+            android:src="@drawable/users" />
+    </LinearLayout>
+
+</RelativeLayout>
+

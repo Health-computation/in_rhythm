@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChartActivity" >
+    
+    <LinearLayout
+        android:id="@+id/graphSelect"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:background="#f1c40f"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".5" 
+            android:layout_height="match_parent"
+            android:gravity="center"   
+            android:background="@color/black"  
+            android:textColor="@color/white"   
+            android:text="Rhythm" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight=".5" 
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/white"  
+            android:textColor="@color/black" 
+            android:text="Sleep" />
+        
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/dateSelect"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/graphSelect"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:background="@color/good"
+            android:gravity="center"
+            android:text="Week" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".33"
+            android:background="@color/turq"
+            android:gravity="center"           
+            android:text="Month" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".34"
+            android:background="@color/okay"
+            android:gravity="center"            
+            android:text="Year" />
+    </LinearLayout>
+
+</RelativeLayout>

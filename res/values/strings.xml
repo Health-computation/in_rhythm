@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="donut">#ecf0f1</color>
+    <color name="black">#000000</color>
+
+    <item name="donut_text" type="string">@color/donut</item>
+
     <string name="app_name">Staying In Rhythm</string>
+    <string name="title">Title</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="foreground_service_started">Service is in the foreground</string>
@@ -18,8 +24,28 @@
     <string name="relationship">Relationship</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_test">TestActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Visualize</string>
+    <string name="title_section2">Badges</string>
+    <string name="title_section3">Compete</string>
+    <string name="title_activity_badges">BadgesActivity</string>
+
+    <item name="score" type="id"/>
+    <item name="goal" type="id"/>
+    <item name="donut" type="id"/>
+    <item name="recentData" type="id"/>
+    <item name="setGoal" type="id"/>
+    <item name="recentDataImage" type="id"/>
+    <item name="goalImage" type="id"/>
+    <item name="compete" type="id"/>
+    <item name="competeText" type="id"/>
+    <item name="competeImage" type="id"/>
+    
+    <item name="graphSelect" type="id"/>
+    <item name="dateSelect" type="id"/>
+
+    <string name="title_activity_startup">StartupActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_chart">ChartActivity</string>
 
 </resources>

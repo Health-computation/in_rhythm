@@ -39,13 +39,19 @@
     <item name="compete" type="id"/>
     <item name="competeText" type="id"/>
     <item name="competeImage" type="id"/>
-    
     <item name="graphSelect" type="id"/>
     <item name="dateSelect" type="id"/>
+    <item name="setSleepGoal" type="id"/>
+    <item name="wakeupGoalTimePicker" type="id"/>
+    <item name="setTimeButton" type="id"/>
+    <item name="sleepGraphText" type="id"/>
+    <item name="barGraphText" type="id"/>
 
     <string name="title_activity_startup">StartupActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_chart">ChartActivity</string>
+    <string name="title_activity_goal">GoalActivity</string>
+    <string name="title_activity_day_data">DayDataActivity</string>
 
 </resources>

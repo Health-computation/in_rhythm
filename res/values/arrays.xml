@@ -13,4 +13,13 @@
         <item>@color/good</item>
     </string-array>
     
+	<string-array name="demo_sleep_chart_colors">
+        <item>@color/bad</item>
+        <item>@color/okay</item>
+        <item>@color/good</item>
+		<item>@color/bad</item>
+		<item>@color/okay</item>
+        <item>@color/good</item>
+        <item>@color/good</item>
+    </string-array>
 </resources>

@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DayDataActivity" >
+
+        <TextView
+            android:id="@+id/dayText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+                    android:layout_alignParentTop="true"
+            android:text="October 30, 2013"
+            android:textColor="@color/white"
+			android:background="@color/good"
+            android:textSize="30sp" />
+       	<View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                        android:layout_below="@+id/dayText"
+                android:id="@+id/separator1"
+                android:visibility="visible"
+                android:background="#ecf0f1"/>
+  	<LinearLayout
+        android:id="@+id/goalBox"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/separator1"
+        android:clickable="true"	
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/goalDrawing"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="7 hours"
+			android:background="@color/okay"
+            android:textSize="30sp" />
+    </LinearLayout>
+           	<View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                        android:layout_below="@+id/goalBox"
+                android:id="@+id/separator2"
+                android:visibility="visible"
+                android:background="#ecf0f1"/>
+    
+  	    <TextView
+  	        android:id="@+id/goalProgress"
+  	        android:layout_width="match_parent"
+  	        android:layout_height="100dp"
+  	        android:layout_below="@+id/separator2"
+  	        android:background="@color/good"
+  	        android:paddingBottom="30dp"
+  	        android:paddingLeft="20dp"
+  	        android:paddingTop="30dp"
+  	                    android:textColor="@color/white"
+  	        android:gravity="center"
+  	        android:text="Goal met!"
+  	        android:textSize="30sp" />
+  	           	<View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                        android:layout_below="@+id/goalProgress"
+                android:id="@+id/separator3"
+                android:visibility="visible"
+                android:background="#ecf0f1"/>
+  	           	     <com.example.ds.SleepDrawing
+        android:id="@+id/sleepDrawiing"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+		android:layout_below="@+id/separator3"/>
+
+</RelativeLayout>

@@ -29,8 +29,13 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import edu.cornell.SleepActivity;
+import edu.cornell.SleepProbeWriter;
 
-public class MainActivity extends Activity{
+import edu.cornell.SleepActivity;
+import edu.cornell.SleepProbeWriter;
+
+public class MainActivity extends SleepActivity{
 
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
@@ -39,12 +44,24 @@ public class MainActivity extends Activity{
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private static final int USER_DATA = 1;
 	private static final int BADGES = 2;
+	
+    private static final String CAMPAIGN_URN = "urn:campaign:moodrhythm:sleep";
+    private static final String CAMPAIGN_CREATED = "2013-05-01 17:00:00";
+    private static final String SURVEY_ID = "sleepDurationSurvey";
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		Log.d("LOL", "COOL STORY");
+		
+		 SleepProbeApplication2 app = (SleepProbeApplication2) getApplicationContext();
+
+	        // Initialize the sleep dpu probe that will upload data to the system
+	        mProbeWriter = new SleepProbeWriter(this, CAMPAIGN_URN, CAMPAIGN_CREATED, SURVEY_ID);
+	        // Start up the probe
+	        app.startSleepProbe();
+
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 		setContentView(R.layout.activity_main);
@@ -56,16 +73,30 @@ public class MainActivity extends Activity{
 		TextView goal = (TextView) findViewById(R.id.goal);
 		TextView competeText = (TextView) findViewById(R.id.competeText);
 		DonutChartView donut = (DonutChartView) findViewById(R.id.donut);
+		donut.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+		    	launchChartPage();
+		    }
+		});
         DisplayMetrics metrics = new DisplayMetrics();
-        donut.setDensity(metrics.densityDpi);
+        //donut.setDensity(metrics.densityDpi);
 		Typeface face = Typeface.createFromAsset(getAssets(),
 		            "proximanova-bold-webfont.ttf");
-		LinearLayout setGoal = (LinearLayout) findViewById(R.id.setGoal);
+		View setGoal = (View) findViewById(R.id.setGoal);
 		View recentData = (View) findViewById(R.id.recentData);
 		recentData.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v){
-		    	launchChartPage();
+				launchChartPage();
+		    }
+		});
+		
+		
+		setGoal.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+		    	launchGoalPage();
 		    }
 		});
 		//goal.setOnClickListener(goalListener());
@@ -89,10 +120,11 @@ public class MainActivity extends Activity{
 		
 	}
 	
-	public void onClick(View v) {
-		Log.d("LOL", "Well");
-	}
-	
+    public void launchDataPage(){
+		Intent chartPage = new Intent(this, ChartActivity.class);
+		startActivity(chartPage);		
+    	
+    }
 	private View.OnClickListener goalListener(){
 		View.OnClickListener mCorkyListener = new OnClickListener() {
 			@Override
@@ -108,6 +140,12 @@ public class MainActivity extends Activity{
 		Intent chartPage = new Intent(this, ChartActivity.class);
 		startActivity(chartPage);		
 	}
+	
+	private void launchGoalPage(){
+		Intent goalPage = new Intent(this, GoalActivity.class);
+		startActivity(goalPage);		
+	}
+
 
 
 }

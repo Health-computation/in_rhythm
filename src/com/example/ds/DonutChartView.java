@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.TreeMap;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -221,9 +222,14 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
     
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-        return true;
+    	Intent dataPage = new Intent(SleepProbeApplication2.getAppContext(), DayDataActivity.class);
+    	dataPage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    	dataPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+    	SleepProbeApplication2.getAppContext().startActivity(dataPage);
+    	return true;
     }
     
+   
     //negative
     private float getDistanceFromZero(float f) {
         if (f < 0) {

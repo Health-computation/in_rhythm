@@ -1,6 +1,8 @@
 <resources>
 
     <color name="black_overlay">#66000000</color>
+    <color name="dark_text">#000000</color>   
+    <color name="graph_ruler_background_color">#bbbbbb</color>
     
 
 </resources>

@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/sleepGoalTitle"
+        android:layout_width="match_parent"
+		android:layout_alignParentTop="true"
+        android:layout_height="100dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="30dp"
+        android:background="@color/okay"
+        android:text="Sleep Goal"
+        android:textSize="30sp"/>
+    
+    
+    	<LinearLayout
+        android:id="@+id/setBedTime"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/sleepGoalTitle"
+        android:background="@color/turq"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/setBedtimeGoal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@color/turq"
+            android:paddingLeft="20dp"
+            android:paddingTop="55dp"
+            android:textSize="30sp" />
+
+        <TimePicker
+            android:id="@+id/setBedTimeGoalPicker"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:background="@color/turq"
+            android:gravity="center"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    
+	<LinearLayout
+        android:id="@+id/setWakeTime"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/setBedTime"
+        android:clickable="true"	
+        android:background="@color/good" >
+	    <TextView
+	        android:id="@+id/setWaketimeGoal"
+            android:layout_width="150dp" 
+	        android:layout_height="150dp"
+	        android:paddingLeft="20dp"
+	        android:paddingTop="55dp"
+	        android:background="@color/good"       
+	        android:textSize="30sp"/>
+	
+	    <TimePicker
+	        android:id="@+id/wakeGoalTimePicker"
+	        android:layout_width="200dp"
+	        android:layout_height="150dp"
+	        android:background="@color/good"
+	        android:textColor="@color/white"
+	        android:gravity="center" />
+	</LinearLayout>
+	
+
+
+    <Button
+        android:id="@+id/setTimeButton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+		android:textSize="30sp"
+        android:text="Confirm" 
+        android:gravity="center"
+        android:layout_below="@+id/setWakeTime"
+        android:onClick="onWakeUpTimeSet"/>
+
+</RelativeLayout>

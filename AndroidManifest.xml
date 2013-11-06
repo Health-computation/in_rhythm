@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="1"
         android:targetSdkVersion="18" />
 
     <application
@@ -64,8 +64,7 @@
         </activity>
         <activity
             android:name="com.example.ds.MainActivity"
-            android:label="@string/title_activity_main"
-            android:noHistory="true" >
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -96,6 +95,14 @@
         <activity
             android:name="com.example.ds.ChartActivity"
             android:label="@string/title_activity_chart" >
+        </activity>
+        <activity
+            android:name="com.example.ds.GoalActivity"
+            android:label="@string/title_activity_goal" >
+        </activity>
+        <activity
+            android:name="com.example.ds.DayDataActivity"
+            android:label="@string/title_activity_day_data" >
         </activity>
     </application>
 

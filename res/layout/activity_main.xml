@@ -44,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/recentData"
+        android:clickable="true"	
         android:background="@color/good" >
 
         <TextView

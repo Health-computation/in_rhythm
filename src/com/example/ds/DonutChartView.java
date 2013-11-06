@@ -69,16 +69,10 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
 	            "proximanova-bold-webfont.ttf");
         ZONE_COLORS = new int[DAYS];
 
-        if (isInEditMode()) {
-            for (int i = 0; i < DAYS; i++) {
-                ZONE_COLORS[i] = Color.RED * (i+1);
-            }
-        } else {
-            Resources res = context.getResources();
-            TypedArray colorArray = res.obtainTypedArray(R.array.donut_chart_colors);
-            for (int i = 0; i < DAYS; i++) {
-                ZONE_COLORS[i] = colorArray.getColor(i, Color.RED);
-            }
+        Resources res = context.getResources();
+        TypedArray colorArray = res.obtainTypedArray(R.array.donut_chart_colors);
+        for (int i = 0; i < DAYS; i++) {
+        	ZONE_COLORS[i] = colorArray.getColor(i, Color.RED);
         }
     }
     
@@ -89,22 +83,15 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
 	            "proximanova-bold-webfont.ttf");
 
         ZONE_COLORS = new int[DAYS];
-        if (isInEditMode()) {
-            for (int i = 0; i < DAYS; i++) {
-                ZONE_COLORS[i] = Color.RED * (i+1);
-            }
-        } else {
-            Resources res = context.getResources();
-            TypedArray colorArray = res.obtainTypedArray(R.array.donut_chart_colors);
-            for (int i = 0; i < DAYS; i++) {
-                ZONE_COLORS[i] = colorArray.getColor(i, Color.RED);
-            }
+        Resources res = context.getResources();
+        TypedArray colorArray = res.obtainTypedArray(R.array.donut_chart_colors);
+        for (int i = 0; i < DAYS; i++) {
+            ZONE_COLORS[i] = colorArray.getColor(i, Color.RED);
         }
     }
     
     @Override
     public void onDraw(Canvas canvas) {
-        //START PointsInRed
         float size;
         float pivotStartPoint = -90;
         Calendar calendar = Calendar.getInstance();
@@ -188,7 +175,7 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
             pivotStartPoint += arcLength;
         }
 
-        if (mRotate != Rotate.OFF) {//synchronize?
+        if (mRotate != Rotate.OFF) {
             ArcInfo angles = mArcInfos.get(mDesiredIndex);
             if (angles == null) {
                 return;
@@ -202,14 +189,9 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
                 Log.d(TAG, "OVERROTATE");
             }
 
-//            if (desiredAngle >= 0) {
-//                mCurrentAngle = desiredAngle % 360;
-//            } else {
-//                mCurrentAngle = getAltAngle(desiredAngle);
-//            }
             RotateAnimation rotateAnimation = new RotateAnimation(currentAnchorAngle, desiredAngle,
                     Animation.RELATIVE_TO_SELF, 0.5f,  Animation.RELATIVE_TO_SELF, 0.5f);
-            rotateAnimation.setInterpolator(new OvershootInterpolator(.8f));//default is 2.0f
+            //rotateAnimation.setInterpolator(new OvershootInterpolator(.8f));//default is 2.0f
             rotateAnimation.setDuration(750);
             rotateAnimation.setFillAfter(true);
 
@@ -241,26 +223,7 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
         }
     }
     
-    //negative
-    //270 --> -90
-    //-90 --> 270
-    private float getAltAngle(float val) {
-        if (val < 0) {
-            return 360 + val;
-        } else if (val > 0) {
-            return val - 360;
-        }
-        return val;
-    }
     
-    /**
-     * Ported from iPhone project
-     *
-     * @param point
-     * @param center
-     * @param height
-     * @return angle in RADIANS
-     */
     public static double angleForPoint(PointF point, PointF center, int height) {
         center.y = height - center.y;
         point.y = height - point.y;

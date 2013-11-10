@@ -20,17 +20,7 @@ import android.widget.TextView;
 
 import java.util.Set;
 import com.androidplot.xy.XYGraphWidget;
-
-/**
- * The power zone bar chart.
- *
- * Please note I am not proud of this class. It has terrible functionality leak (it references its enveloping container).
- * AsymmetricallyExpandingBox probably should handle height and width through use of bounds.
- * @author matt@strava.com (Matt Laroche)
- */
-
-
-public class SleepBarChart extends BarChart {
+class SleepBarChart extends BarChart {
 
 	public static int CurrentBar;
     private static final String TAG = "SleepBarChart";
@@ -87,8 +77,8 @@ public class SleepBarChart extends BarChart {
 
             int bucket = buckets[i];
             // We want the tallest bar to be 2/3 of the total space allocated to the chart.
-            // TODO(matt): during design review, clear 2/3. Currently eyeballed.
             int heightOfThisBar = (bucket * (barChartBaseline-(bucket)) * 2) / (maxTime * 3);
+
             int rightEdge;
             if (i == buckets.length - 1) {
                 rightEdge = chartWidth;
@@ -121,40 +111,6 @@ public class SleepBarChart extends BarChart {
        
         super.onDraw(canvas);
     }
-/*
-    @Override
-    protected RelativeLayout getOverlayLayout(LayoutInflater inflator, ViewGroup parent) {
-        inflator.inflate(R.layout.power_zones_overlay, parent);
-        return (RelativeLayout) parent.findViewById(R.id.power_zones_overlay_root);
-    }*/
-
-    /*
-    @Override
-    protected void layoutTextInBox(View view, Zones.Zone.DistributionBucket bucket, int bucketNum) {
-        int numSeconds = bucket.getTime();
-        int percent = mMovingTime == 0 ? 0 : Math.round((float) 100 * bucket.getTime() / mMovingTime);
-        String range = getRangeForBucket(bucket);
-
-        ((TextView) view.findViewById(R.id.power_zones_overlay_power_range)).setText(range);
-        ((TextView) view.findViewById(R.id.power_zones_overlay_time_text)).setText(FormatUtils.formatTime(numSeconds));
-        ((TextView) view.findViewById(R.id.power_zones_overlay_percent_text)).setText(mResources.getString(R.string.stat_percent, percent));
-    }*/
-
-    /*
-    @Override
-    protected String getRangeForBucket(int bucket) {
-        if (bucket == rectAndBuckets.get(0).mDistributionBucket) {
-            return mResources.getString(R.string.activity_pace_power_zones_fragment_watt_label,
-                    FormatUtils.formatDecimal(bucket.getMin(), 0));
-        } else if (bucket == rectAndBuckets.get(rectAndBuckets.size() - 1).mDistributionBucket) {
-            return mResources.getString(R.string.activity_pace_power_zones_fragment_power_bottom,
-                    FormatUtils.formatDecimal(bucket.getMin(), 0));
-        } else {
-            return mResources.getString(R.string.activity_pace_power_zones_fragment_power_range,
-                    FormatUtils.formatDecimal(bucket.getMin() + 1, 0),
-                    FormatUtils.formatDecimal(bucket.getMax(), 0));
-        }
-    }*/
 	private void drawHours(Canvas canvas, int[] buckets, int barChartBaseline,int heightOfThisBar, int leftOffset, int approximateWidthPerBucket, int BarValue)
 	{
 		Paint rulerLabelPaint = new Paint();
@@ -206,7 +162,6 @@ public class SleepBarChart extends BarChart {
         rulerLabelPaint.setTextSize(rulerLabelPaint.getTextSize() * mScaleFactor);
         rulerLabelPaint.setTextAlign(Paint.Align.CENTER);
 
-        // TODO(matt) Add a pixel above each tick.
         int topOfTicks = (int) (rulerTop +  mScaleFactor);
         float heightOfLargeTick = 4 * mScaleFactor;
         float bottomOfLargeTick = topOfTicks + heightOfLargeTick;

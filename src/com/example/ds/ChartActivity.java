@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
@@ -24,6 +25,40 @@ public class ChartActivity extends Activity {
 		TextView barGraphText = (TextView) findViewById(R.id.barGraphText);
 		barGraphText.setTypeface(face);
 		competeText.setTypeface(face);
+		
+		final TextView tv = (TextView) findViewById(R.id.sleepGraphText);
+        tv.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View tv) {
+				// TODO Auto-generated method stub
+				
+			    	View view =  findViewById(R.id.sleepBarChart);
+			    	view.setVisibility(View.VISIBLE);
+			    	view = findViewById(R.id.sleepOverlapChart);
+			    	view.setVisibility(View.INVISIBLE);
+			    	
+			    
+			}
+        	
+        });
+        
+        final TextView tv1 = (TextView) findViewById(R.id.barGraphText);
+        tv1.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View tv1) {
+				// TODO Auto-generated method stub
+				
+				View view = findViewById(R.id.sleepBarChart);
+		    	view.setVisibility(View.INVISIBLE);
+		    	view = findViewById(R.id.sleepOverlapChart);
+		    	view.setVisibility(View.VISIBLE);
+			    	
+			    
+			}
+        	
+        });
 
 	}
 
@@ -33,5 +68,6 @@ public class ChartActivity extends Activity {
 		getMenuInflater().inflate(R.menu.chart, menu);
 		return true;
 	}
-
+	
+   
 }

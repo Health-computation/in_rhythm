@@ -20,7 +20,8 @@
             android:gravity="center"   
             android:background="@color/black"  
             android:textColor="@color/white"   
-            android:text="Rhythm" />
+            android:text="Rhythm"
+             />
         <TextView
                                 android:id="@+id/barGraphText"
             android:layout_width="0dp"
@@ -29,7 +30,9 @@
             android:gravity="center"
             android:background="@color/white"  
             android:textColor="@color/black" 
-            android:text="Sleep" />
+            android:text="Sleep" 
+            
+            />
         
     </LinearLayout>
     <!-- 
@@ -70,6 +73,14 @@
         android:id="@+id/sleepBarChart"
 		android:layout_below="@id/dateSelect"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:visibility="visible"/>
+     <com.example.ds.SleepOverlapChart
+        android:id="@+id/sleepOverlapChart"
+		android:layout_below="@id/dateSelect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"/>
+     
 
 </RelativeLayout>

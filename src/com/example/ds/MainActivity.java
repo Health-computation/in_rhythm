@@ -22,6 +22,7 @@ import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -30,7 +31,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -73,6 +76,8 @@ public class MainActivity extends SleepActivity{
     private static final String CAMPAIGN_CREATED = "2013-05-01 17:00:00";
     private static final String SURVEY_ID = "sleepDurationSurvey";
 
+    private AlertDialog.Builder mDialogBuilder;
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,7 +94,8 @@ public class MainActivity extends SleepActivity{
 		//actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		TextView score = (TextView) findViewById(R.id.score);
 		TextView goal = (TextView) findViewById(R.id.goal);
-		TextView competeText = (TextView) findViewById(R.id.competeText);
+		TextView competeText = (TextView) findViewById(R.id.competeText);		
+		TextView tipText = (TextView) findViewById(R.id.tipText);
 		DonutChartView donut = (DonutChartView) findViewById(R.id.donut);
 		//new PostDataTask().execute();
 		
@@ -121,6 +127,9 @@ public class MainActivity extends SleepActivity{
 		    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		// mId allows you to update the notification later on.
 		mNotificationManager.notify(100, mBuilder.build());
+		mDialogBuilder = new AlertDialog.Builder(this)
+			.setMessage("HELLO")
+			.setCancelable(true);
 		/*
 		Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
 		intent.putExtra("alarm_message", "O'Doyle Rules!");
@@ -136,6 +145,18 @@ public class MainActivity extends SleepActivity{
 			public void onClick(View v){
 		    	launchChartPage();
 		    }
+		});
+		
+		tipText.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+			    SharedPreferences settings = getSharedPreferences(SleepProbeApplication2.PREFS_NAME, 0);
+				String goal = settings.getString("currentGoal", null);
+				TypedArray customArr = getResources().obtainTypedArray(R.array.generic_tips);
+				int index = (int) (Math.random() * (customArr.length() - 1));					
+				mDialogBuilder.setMessage(customArr.getString(index));
+				mDialogBuilder.create().show();
+		    }	
 		});
         DisplayMetrics metrics = new DisplayMetrics();
         //donut.setDensity(metrics.densityDpi);
@@ -170,9 +191,7 @@ public class MainActivity extends SleepActivity{
 		score.setTypeface(face);
 		goal.setTypeface(face);
 		competeText.setTypeface(face);
-
-		
-		
+		tipText.setTypeface(face);		
 
 		// Set up the dropdown list navigation in the action bar.
 		/*actionBar.setListNavigationCallbacks(

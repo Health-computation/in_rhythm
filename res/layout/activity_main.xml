@@ -69,8 +69,9 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/setGoal"
-        android:background="@color/turq" >
-
+        android:background="@color/turq"
+        
+        >
         <TextView
             android:id="@id/competeText"
             android:layout_width="300dp"
@@ -79,7 +80,10 @@
             android:paddingLeft="20dp"
             android:paddingTop="30dp"
             android:text="Compete"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:clickable="true"
+        	android:onClick="badgeClick"
+             />
 
         <ImageView
             android:id="@+id/competeImage"

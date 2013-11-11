@@ -143,6 +143,7 @@ public class MainActivity extends SleepActivity{
 		            "proximanova-bold-webfont.ttf");
 		View setGoal = (View) findViewById(R.id.setGoal);
 		View recentData = (View) findViewById(R.id.recentData);
+		View badges=(View)findViewById(R.id.competeText);
 		recentData.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -155,6 +156,13 @@ public class MainActivity extends SleepActivity{
 			@Override
 			public void onClick(View v){
 		    	launchGoalPage();
+		    }
+		});
+		
+		badges.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+		    	launchBadgePage();
 		    }
 		});
 		//goal.setOnClickListener(goalListener());
@@ -177,6 +185,8 @@ public class MainActivity extends SleepActivity{
 								getString(R.string.title_section3), }), this);*/
 		
 	}
+	
+		
 	
     public void launchDataPage(){
 		Intent chartPage = new Intent(this, ChartActivity.class);
@@ -203,6 +213,7 @@ public class MainActivity extends SleepActivity{
 		Intent goalPage = new Intent(this, PickGoalActivity.class);
 		startActivity(goalPage);		
 	}
+	
 	
 	 private class PostDataTask extends AsyncTask<Void, Void, HttpResponse> {
 	     protected HttpResponse doInBackground(Void... voids) {
@@ -241,6 +252,14 @@ public class MainActivity extends SleepActivity{
 	         }
 	     }
 	 }
+	 
+	 public void launchBadgePage(){
+			Intent badgePage = new Intent(this, BadgesActivity.class);
+			startActivity(badgePage);	
+			
+			
+		}
+	 
 
 
 

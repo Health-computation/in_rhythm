@@ -6,16 +6,16 @@
 
     <item name="donut_text" type="string">@color/donut</item>
 
-    <string name="app_name">Staying In Rhythm</string>
+ 
     <string name="loading">PythonAPK running...</string>
     <string name="title">Title</string>
-    <string name="hello_world">Hello world!</string>
+    
     <string name="menu_settings">Settings</string>
     <string name="foreground_service_started">Service is in the foreground</string>
     <string name="foreground_service_started_aud">Audio service is in the foreground</string>
     <string name="app_id">530721140354975</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="action_settings">Settings</string>
+    
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
     <string name="login_intro">Check out your Facebook profile by logging in with the button below!</string>
@@ -81,4 +81,12 @@
     <string name="title_activity_survey">SurveyActivity</string>
     <string name="title_activity_goal_survey">GoalSurveyActivity</string>
 
+    <string name="app_name">Badge</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="earned">Earned Badges</string>
+    <string name="unearned">Unearned Badges</string>
+    <string name="pilotBadge">Pilot Badge</string>
+    <string name="adventurousBadge">Adventurous Badge</string>
+    <string name="modernCitizenBadge">Modern Citizen Badge</string>
 </resources>

@@ -142,7 +142,7 @@ public class MainActivity extends SleepActivity{
 	}
 	
 	private void launchGoalPage(){
-		Intent goalPage = new Intent(this, GoalActivity.class);
+		Intent goalPage = new Intent(this, PickGoalActivity.class);
 		startActivity(goalPage);		
 	}
 

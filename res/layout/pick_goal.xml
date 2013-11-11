@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+   >
+    
+    <LinearLayout
+    android:id="@+id/labelTextLayout"
+    android:layout_alignParentTop="true"
+    
+    android:layout_height="100dp"
+    android:layout_width="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/LabelView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="58dp"
+            android:paddingLeft="50dp"
+            android:paddingTop="45dp"
+            android:text="Select Your Goal: "
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ButtonsLayout"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelTextLayout"
+        android:layout_centerHorizontal="true" >
+
+        <TextView
+            android:id="@+id/WakeEarlier"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="37dp"
+            android:background="@color/okay"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="Wake Up Earlier"
+            android:textSize="30sp"
+            android:clickable="true" 
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/SleepEarlier"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/WakeEarlier"
+            android:background="@color/turq"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="Sleep Earlier"
+            android:textSize="30sp"
+            android:clickable="true"
+            android:onClick="onClick" />
+
+        <TextView
+            android:id="@+id/SleepMore"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/SleepEarlier"
+            android:background="@color/good"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:text="Get More Sleep"
+            android:textSize="30sp" 
+            android:clickable="true"
+            android:onClick="onClick"/>
+    </RelativeLayout>
+
+</RelativeLayout>

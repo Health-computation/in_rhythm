@@ -101,6 +101,10 @@
             android:label="@string/title_activity_goal" >
         </activity>
         <activity
+            android:name="com.example.ds.PickGoalActivity"
+            android:label="@string/title_activity_pick_goal" >
+        </activity>
+        <activity
             android:name="com.example.ds.DayDataActivity"
             android:label="@string/title_activity_day_data" >
         </activity>

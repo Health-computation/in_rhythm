@@ -3,6 +3,7 @@ package com.example.ds;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.util.Log;
@@ -54,6 +55,22 @@ public class PickGoalActivity extends Activity {
 		int viewId = ((TextView) v).getId();
 		Intent goalPage = new Intent(getApplicationContext(), GoalActivity.class);
 		TextView clickedView = (TextView) findViewById(viewId);
+	      SharedPreferences settings = getSharedPreferences(SleepProbeApplication2.PREFS_NAME, 0);
+	      SharedPreferences.Editor editor = settings.edit();
+	      String selectedGoal = "";
+	      switch(viewId){
+	      	case R.id.WakeEarlier:  
+	      		selectedGoal = "wake_early";
+	      		break;
+	      	case R.id.SleepEarlier:
+	      		selectedGoal = "sleep_early";
+	      		break;
+	      	case R.id.SleepMore:
+	      		selectedGoal = "sleep_more";
+	      		break;
+	      }
+	      editor.putString("currentGoal", selectedGoal);
+	      editor.commit();
 		startActivity(goalPage);
 		
 		

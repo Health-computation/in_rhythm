@@ -26,7 +26,36 @@
         <item>@color/good</item>
     </string-array>
     
-    <string-array name="survey_colors">
+	<string-array name="wake_early_tips">
+        <item>@color/bad</item>
+    </string-array>
+    
+    <string-array name="sleep_early_tips">
+       <item>Exercise but not right before bedtime</item>
+        <item>You can find more information on healthy sleeping at http://www.gannett.cornell.edu/topics/sleep.cfm</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Establish a "relax and wind down" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
+        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a "to do" list.</item>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time</item>
+        
+    </string-array>    
+    
+    <string-array name="sleep_more_tips"> 
+        <item>The average adult needs 7-9 hours of sleep per day</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+    </string-array>
+    
+        <string-array name="generic_tips"> 
+        <item>The average adult needs 7\-9 hours of sleep per day</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+      <item>Exercise but not right before bedtime</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Establish a \"relax and wind down\" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
+        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a \"to do\" list.</item>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time</item>       
+       </string-array>
+    
+<string-array name="survey_colors">
         <item>@color/question</item>
         <item>@color/input</item>
     </string-array>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="question">#bdc3c7</color>
+    <color name="input"> #ecf0f1</color>
+    
     <color name="bad">#e74c3c</color>
     <color name="okay">#f1c40f</color>
     <color name="good">#46a1de</color>
@@ -22,4 +25,10 @@
         <item>@color/good</item>
         <item>@color/good</item>
     </string-array>
+    
+    <string-array name="survey_colors">
+        <item>@color/question</item>
+        <item>@color/input</item>
+    </string-array>
+
 </resources>

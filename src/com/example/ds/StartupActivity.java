@@ -58,12 +58,13 @@ public class StartupActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	
 		ParseUser currentUser = ParseUser.getCurrentUser();
+
 		setContentView(R.layout.activity_startup);	
 		if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
 			// Go to the user info activity
 			showMainPage();
 		}else{
-			showLoginPage();
+			showMainPage();
 		}
 
 	}

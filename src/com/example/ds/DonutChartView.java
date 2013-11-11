@@ -206,7 +206,7 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
     public boolean onTouch(View view, MotionEvent event) {
     	Intent dataPage = new Intent(SleepProbeApplication2.getAppContext(), DayDataActivity.class);
     	dataPage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    	dataPage.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+    	dataPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     	SleepProbeApplication2.getAppContext().startActivity(dataPage);
     	return true;
     }

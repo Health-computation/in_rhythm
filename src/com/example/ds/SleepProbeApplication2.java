@@ -3,12 +3,13 @@ package com.example.ds;
 import edu.cornell.SleepProbeApplication;
 import android.content.Context;
 
+import com.android.python27.ScriptApplication;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 
-public class SleepProbeApplication2 extends SleepProbeApplication {
+public class SleepProbeApplication2 extends ScriptApplication {
 	
 
     private static Context context;

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight=".5"
+        android:text="@string/fill_out_survey"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="25sp"
+        android:background="@color/question"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight=".5"
+        android:gravity="center"
+        android:background="@color/input"
+        android:orientation="horizontal" 
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <CheckBox
+            android:id="@+id/checkbox_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/male" 
+            android:textSize="25sp"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/female"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:text="@string/survey_sleeptime"
+        android:textAlignment="textStart"
+        android:layout_weight=".5"
+        android:textSize="25sp" 
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@color/question"/>
+    
+     <TimePicker
+        android:id="@+id/sleepTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight=".5"
+        android:layout_marginLeft="5dp"
+        android:background="@color/input"
+       
+         />
+     
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_weight=".5"
+        android:text="@string/survey_wakeuptime"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="25sp"
+        android:textAlignment="textStart"
+        android:background="@color/question"
+         />
+
+    <TimePicker
+        android:id="@+id/wakeUpTimePicker"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight=".5"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/input"
+         />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_weight=".5"
+        android:text="@string/survey_coffee" 
+        android:textSize="25sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textAlignment="textStart"
+        android:background="@color/question"/>
+
+    <EditText
+        android:id="@+id/survey_coffee"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight=".5"
+        android:textSize="25sp" 
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@color/input"
+        android:hint="@string/hint_coffee"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_weight=".5"
+        android:text="@string/survey_alarmclock"
+        android:textAlignment="textStart"
+        android:textSize="25sp"
+        android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@color/question" />
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight=".5"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:background="@color/input"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/checkbox_alarmclocktrue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/alarmclock_true"
+            android:textSize="25sp" />
+
+        <CheckBox
+            android:id="@+id/checkbox_alarmclockfalse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/alarmclock_false"
+            android:textSize="25sp" />
+        
+    </LinearLayout>
+    
+    
+    <Button
+        android:id="@+id/survey_complete"
+        android:onClick="onSurveyComplete"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:text="submit"
+        
+        />
+    
+
+    
+
+</LinearLayout>
+    
+
+</ScrollView>

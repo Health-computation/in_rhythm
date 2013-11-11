@@ -9,6 +9,7 @@ import java.util.List;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,23 +35,6 @@ public class LoginActivity extends Activity {
 		// Check if there is a currently logged in user
 		// and they are linked to a Facebook account.
 		ParseUser currentUser = ParseUser.getCurrentUser();
-		/*
-		badge.saveInBackground(new SaveCallback() {
-		 
-		    public void done(ParseException e) {
-		        if (e != null) {
-		        	Badge meal = new Badge();
-
-		        
-		        } else {
-		        }
-		    };
-		});
-		*/
-		if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
-			// Go to the user info activity
-			showMainPage();
-		}
 
 		setContentView(R.layout.activity_login);
 
@@ -74,25 +58,31 @@ public class LoginActivity extends Activity {
 	}
 
 	private void onLoginButtonClicked() {
+		Context context = getApplicationContext();
 		LoginActivity.this.progressDialog = ProgressDialog.show(
 				LoginActivity.this, "", "Logging in...", true);
 		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
 				"user_relationships", "user_birthday", "user_location");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
+			
 			@Override
 			public void done(ParseUser user, ParseException err) {
-				LoginActivity.this.progressDialog.dismiss();
+				try{
+					LoginActivity.this.progressDialog.dismiss();
+				}catch(Exception e){
+					Log.d("LOL", "NOONE CARES");
+				}
 				if (user == null) {
 					Log.d("LOL",
 							"Uh oh. The user cancelled the Facebook login.");
 				} else if (user.isNew()) {
 					Log.d("LOL",
 							"User signed up and logged in through Facebook!");
-					showMainPage();
+					showSurveyPage();
 				} else {
 					Log.d("LOL",
 							"User logged in through Facebook!");
-					showMainPage();
+					showSurveyPage();
 				}
 			}
 		});
@@ -100,40 +90,36 @@ public class LoginActivity extends Activity {
 
 	private void showUserDetailsActivity() {
 		Intent loggedInPage = new Intent(this, MainActivity.class);
+		progressDialog.dismiss();
 		startActivity(loggedInPage);
+	}
+	
+	@Override
+	public void onDestroy() {
+	    if (progressDialog != null) {
+	    	progressDialog.dismiss();
+	    }
+	    super.onDestroy();
 	}
 	
 	private void showBadgePage(){
 		Intent badgesPage = new Intent(this, BadgesActivity.class);
+		progressDialog.dismiss();
 		startActivity(badgesPage);
 	}
 	
 	private void showMainPage(){
 		Intent mainPage = new Intent(this, MainActivity.class);
+		progressDialog.dismiss();
 		startActivity(mainPage);
 	}
 	
-	private byte[] createBadge(){
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-		InputStream raw = getResources().openRawResource(com.example.ds.R.drawable.ic_launcher);
-	    int i;
-	    try
-	    {
-	        i = raw.read();
-	        while (i != -1)
-	        {
-	            byteArrayOutputStream.write(i);
-	            i = raw.read();
-	        }
-	        raw.close();
-	    }
-	    catch (IOException e)
-	    {
-
-	        e.printStackTrace();
-	    }
-	    return byteArrayOutputStream.toByteArray();
+	private void showSurveyPage(){
+		Intent surveyPage = new Intent(this, SurveyActivity.class);
+		progressDialog.dismiss();
+		startActivity(surveyPage);
 	}
+	
 }
 
 

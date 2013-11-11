@@ -7,6 +7,7 @@
     <item name="donut_text" type="string">@color/donut</item>
 
     <string name="app_name">Staying In Rhythm</string>
+    <string name="loading">PythonAPK running...</string>
     <string name="title">Title</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
@@ -54,5 +55,30 @@
     <string name="title_activity_goal">GoalActivity</string>
     <string name="title_activity_pick_goal">GoalPickActivity</string>
     <string name="title_activity_day_data">DayDataActivity</string>
+    <string name="fill_out_survey">Please complete this short survey so we can provide better suggestions for you!</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="survey_sleeptime">What time do you typically go to bed?</string>
+    <string name="survey_wakeuptime">What time do you typically wake up?</string>
+    <string name="survey_coffee">How many cups of coffee do you drink on a typical day </string>
+    <string name="survey_alarmclock">Do you need an alarm clock to wake you up in the morning？</string>
+    <string name="hint_sleeptime">Please enter your sleep time using the format like 11:00PM</string>
+    <string name="hint_wakeuptime">Please enter your wake time using the format like 8:00AM</string>
+    <string name="hint_coffee">Enter the number.</string>
+    <string name="alarmclock_true">Yes</string>
+    <string name="alarmclock_false">No</string>
+    <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="TipButton">Tips</string>
+    <string name="VisualizeButton">Visualize</string>
+    <string name="GoalButton">Set Your Goal</string>
+    <string name="BadgeButton">Badges</string>
+    <string name="title_activity_tip">TipActivity</string>
+    <string name="tip_today">Don’t dwell on worries and frustrations.Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a "to do" list.</string>
+    <string name="title_activity_choose_goal_type">ChooseGoalTypeActivity</string>
+    <string name="wakeUpEarlierGoalButton">Wake Up Earlier</string>
+    <string name="goSleepEarlierGoalButton">Go Sleep Earlier</string>
+    <string name="getMoreSleepGoalButton">Get More Sleep</string>
+    <string name="title_activity_survey">SurveyActivity</string>
+    <string name="title_activity_goal_survey">GoalSurveyActivity</string>
 
 </resources>

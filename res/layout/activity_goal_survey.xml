@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/dayQuality"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+		android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Which image describes your day?"
+        android:textColor="#33b5e5"
+        android:textSize="25sp"
+		 />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+		android:id="@+id/day"
+        android:layout_below="@+id/dayQuality"
+		 >
+
+            <ImageButton
+    android:id="@+id/ImageButtonG"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/g_ico_small" 
+    android:background="@color/white"
+    android:onClick="onClickGoal" />
+            
+            <ImageButton
+    android:id="@+id/ImageButtonR"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/r_ico_small" 
+	android:background="@color/white"
+    android:onClick="onClickGoal" />
+            
+            <ImageButton
+    android:id="@+id/ImageButtonB"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/b_ico_small" 
+    android:background="@color/white"
+    android:onClick="onClickGoal" />
+
+        </LinearLayout>
+        
+            <TextView
+        android:id="@+id/deviationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:text="Why did you miss your goal?"
+                android:layout_below="@+id/day"
+        android:textColor="#33b5e5"
+        android:textSize="25sp"
+		 />
+    
+        <RelativeLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:id="@+id/deviationReasons"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/deviationTitle"
+		 >
+                    <TextView
+            android:id="@+id/academics"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text="Academics"
+            android:clickable="true"
+            android:onClick="onTextViewClick"
+            android:background="@color/good"
+            android:textSize="20sp" />
+                    
+                    <TextView
+            android:id="@+id/social"
+            android:layout_below="@+id/academics"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:clickable="true"
+            android:onClick="onTextViewClick"            
+            android:paddingTop="10dp"
+            android:background="@color/okay" 
+                      
+            android:text="Friends/Family"
+            android:textSize="20sp" />
+                                      <TextView
+            android:id="@+id/insomnia"
+                        android:layout_below="@+id/social"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:clickable="true"
+            android:onClick="onTextViewClick"           
+            android:background="@color/bad"             
+            android:text="Insomnia"
+            android:textSize="20sp" />
+            
+           <TextView
+               android:id="@+id/caffeine"
+                           android:layout_below="@+id/insomnia"
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               android:paddingBottom="10dp"
+               android:paddingLeft="20dp"
+            android:background="@color/good"                 
+               android:paddingTop="10dp"
+               android:text="Caffeine"
+               android:clickable="true"
+            android:onClick="onTextViewClick"
+               android:textSize="20sp" />
+           <TextView
+            android:id="@+id/wellbeing"
+                        android:layout_below="@+id/caffeine"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:background="@color/turq"             
+            android:paddingTop="10dp"
+			android:clickable="true"
+            android:onClick="onTextViewClick"
+            android:text="Physical/Social wellbeing"
+            android:textSize="20sp" />
+
+        </RelativeLayout>
+        
+	<Button
+        android:id="@+id/setTimeButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+		android:textSize="25sp"
+        android:text="Submit" 
+        android:gravity="center"
+        android:layout_below="@+id/deviationReasons"        
+        android:onClick="onClickSubmit"/>
+            
+
+</RelativeLayout>

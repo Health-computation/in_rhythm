@@ -29,7 +29,7 @@
 	   			   android:paddingBottom="30dp"
 			       android:paddingLeft="20dp"
 	               android:textSize="30sp"
-	               android:text="Great sleeping!"/>
+	               android:text="View Charts"/>
 
 	        <ImageView
 	            android:id="@+id/sleepDataImage"

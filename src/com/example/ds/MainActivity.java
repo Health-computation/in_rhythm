@@ -1,11 +1,33 @@
 package com.example.ds;
+import java.io.File;
+import java.nio.charset.Charset;
+import java.util.Calendar;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.CoreProtocolPNames;
+import org.apache.http.params.HttpParams;
+
 import com.parse.*;
+import com.parse.entity.mime.HttpMultipartMode;
+import com.parse.entity.mime.MultipartEntity;
+import com.parse.entity.mime.content.FileBody;
+import com.parse.entity.mime.content.StringBody;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.ListFragment;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -14,6 +36,8 @@ import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -54,13 +78,7 @@ public class MainActivity extends SleepActivity{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		Log.d("LOL", "COOL STORY");
-		
-		 SleepProbeApplication2 app = (SleepProbeApplication2) getApplicationContext();
-
-	        // Initialize the sleep dpu probe that will upload data to the system
-	        mProbeWriter = new SleepProbeWriter(this, CAMPAIGN_URN, CAMPAIGN_CREATED, SURVEY_ID);
 	        // Start up the probe
-	        app.startSleepProbe();
 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -73,6 +91,46 @@ public class MainActivity extends SleepActivity{
 		TextView goal = (TextView) findViewById(R.id.goal);
 		TextView competeText = (TextView) findViewById(R.id.competeText);
 		DonutChartView donut = (DonutChartView) findViewById(R.id.donut);
+		//new PostDataTask().execute();
+		
+		Calendar cal = Calendar.getInstance();
+		// add 5 minutes to the calendar object
+		cal.add(Calendar.MINUTE, 1);
+		Log.d("TEST", "Configuring notification");
+		Context context = getApplicationContext();
+		NotificationCompat.Builder mBuilder =
+		        new NotificationCompat.Builder(context)
+		        .setSmallIcon(R.drawable.icon)
+		        .setContentTitle("Goal Tracking")
+		        .setAutoCancel(true)
+		        .setContentText("Did you meet your Sleep goal?");
+		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+		Intent resultIntent = new Intent(context, GoalSurveyActivity.class);
+		// Adds the back stack for the Intent (but not the Intent itself)
+		stackBuilder.addParentStack(GoalSurveyActivity.class);
+		// Adds the Intent that starts the Activity to the top of the stack
+		stackBuilder.addNextIntent(resultIntent);
+		
+		PendingIntent resultPendingIntent =
+		        stackBuilder.getPendingIntent(
+		            0,
+		            PendingIntent.FLAG_UPDATE_CURRENT
+		        );
+		mBuilder.setContentIntent(resultPendingIntent);
+		NotificationManager mNotificationManager =
+		    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		// mId allows you to update the notification later on.
+		mNotificationManager.notify(100, mBuilder.build());
+		/*
+		Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
+		intent.putExtra("alarm_message", "O'Doyle Rules!");
+		// In reality, you would want to have a static variable for the request code instead of 192837
+		PendingIntent sender = PendingIntent.getBroadcast(this, 192837, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+		// Get the AlarmManager service
+		AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+		am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
+		*/
 		donut.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -145,6 +203,44 @@ public class MainActivity extends SleepActivity{
 		Intent goalPage = new Intent(this, PickGoalActivity.class);
 		startActivity(goalPage);		
 	}
+	
+	 private class PostDataTask extends AsyncTask<Void, Void, HttpResponse> {
+	     protected HttpResponse doInBackground(Void... voids) {
+	    	String dataLocation = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "edu.cornell.cs.pac.sensiphone/default/backup/ScreenProbe.csv";
+	        HttpParams params = new BasicHttpParams();
+	        params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+ 			HttpClient httpclient = new DefaultHttpClient(params);
+	    	HttpPost httppost = new HttpPost("http://ec2-50-17-54-246.compute-1.amazonaws.com/upload_data");
+	 		MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+	 		HttpResponse response = null;
+	 		try{
+	 			Log.d("RESPONSE", dataLocation);
+	 			Log.d("RESPONSE", "GOING");
+	 			entity.addPart("title", new StringBody("title"));
+	 			File myFile = new File(dataLocation);
+	 			Log.d("RESPONSE", Boolean.toString(myFile.canRead()));
+	 			//FileBody fileBody = new FileBody(myFile);
+
+	 			entity.addPart("file",  new FileBody(myFile));
+	 			httppost.setEntity(entity);
+	
+	 			Log.d("RESPONSE", "STILL");
+	 			response = httpclient.execute(httppost);
+
+	 			Log.d("RESPONSE", "Response!");
+	 		}catch(Exception e){
+	 			Log.d("SCRIPT", e.toString());
+	 		}
+	 		return response;
+	     }
+
+
+	     protected void onPostExecute(HttpResponse result) {
+	         if(result != null){
+	        	 Log.d("RESPONSE", Integer.toString(result.getStatusLine().getStatusCode()));
+	         }
+	     }
+	 }
 
 
 

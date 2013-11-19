@@ -77,6 +77,7 @@ public class MainActivity extends SleepActivity{
     private static final String SURVEY_ID = "sleepDurationSurvey";
 
     private AlertDialog.Builder mDialogBuilder;
+    AlarmManager am;
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,43 +104,14 @@ public class MainActivity extends SleepActivity{
 		// add 5 minutes to the calendar object
 		cal.add(Calendar.MINUTE, 1);
 		Log.d("TEST", "Configuring notification");
-		Context context = getApplicationContext();
-		NotificationCompat.Builder mBuilder =
-		        new NotificationCompat.Builder(context)
-		        .setSmallIcon(R.drawable.icon)
-		        .setContentTitle("Goal Tracking")
-		        .setAutoCancel(true)
-		        .setContentText("Did you meet your Sleep goal?");
-		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		Intent resultIntent = new Intent(context, GoalSurveyActivity.class);
-		// Adds the back stack for the Intent (but not the Intent itself)
-		stackBuilder.addParentStack(GoalSurveyActivity.class);
-		// Adds the Intent that starts the Activity to the top of the stack
-		stackBuilder.addNextIntent(resultIntent);
 		
-		PendingIntent resultPendingIntent =
-		        stackBuilder.getPendingIntent(
-		            0,
-		            PendingIntent.FLAG_UPDATE_CURRENT
-		        );
-		mBuilder.setContentIntent(resultPendingIntent);
-		NotificationManager mNotificationManager =
-		    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		// mId allows you to update the notification later on.
-		mNotificationManager.notify(100, mBuilder.build());
 		mDialogBuilder = new AlertDialog.Builder(this)
 			.setMessage("HELLO")
 			.setCancelable(true);
-		/*
-		Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
-		intent.putExtra("alarm_message", "O'Doyle Rules!");
-		// In reality, you would want to have a static variable for the request code instead of 192837
-		PendingIntent sender = PendingIntent.getBroadcast(this, 192837, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-		// Get the AlarmManager service
-		AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-		am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), sender);
-		*/
+		
+		
+		am = (AlarmManager) getSystemService(ALARM_SERVICE);
+		setRepeatingAlarm();
 		donut.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -279,6 +251,20 @@ public class MainActivity extends SleepActivity{
 			
 		}
 	 
+	 /*
+	  * Schedules a repeating alarm that signals the TimeAlarm
+	  * BroadcastReceiver to send a notification every day at noon
+	  */
+	 public void setRepeatingAlarm() {
+		  Intent intent = new Intent(this, TimeAlarm.class);
+		  PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0,
+		    intent, PendingIntent.FLAG_CANCEL_CURRENT);
+		  // schedule a repeating alarm at noon every day
+		  Calendar cal = Calendar.getInstance();
+		  cal.set(Calendar.HOUR_OF_DAY, 12);
+		  am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+			AlarmManager.INTERVAL_DAY, pendingIntent);
+		 }
 
 
 

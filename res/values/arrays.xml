@@ -8,6 +8,8 @@
     <color name="good">#46a1de</color>
     <color name="white">#ffffff</color>
     <color name="turq">#1abc9c</color>
+    <color name="purp">#8e44ad</color>
+    
         <string-array name="donut_chart_colors">
         <item>@color/bad</item>
         <item>@color/okay</item>

@@ -30,6 +30,7 @@ class SleepBarChart extends BarChart {
     private static final int PADDING_BETWEEN_BUCKETS = 2;
     private static int overlap=0;
     private final Resources mResources;
+    private int[] mBuckets = {0, 0, 0, 0, 0, 0, 0};
     public static int visible;
     
     
@@ -49,10 +50,15 @@ class SleepBarChart extends BarChart {
         mScaleFactor = context.getResources().getDisplayMetrics().density;
         mRulerHeight = (int) (30 * mScaleFactor);
     }
+    public void setInformation(int[] information){
+    	if(information.length == 7){
+        	mBuckets = information;	
+    	}
 
+    }
 	@Override
     protected void onDraw(Canvas canvas) {
-        int[] buckets = {6, 7, 9, 5, 8, 7, 9};
+		int[] buckets = mBuckets;
         int chartHeight = getHeight();
         int chartWidth = getWidth();
         int barChartBaseline = chartHeight - mRulerHeight - PADDING_BETWEEN_BUCKETS;

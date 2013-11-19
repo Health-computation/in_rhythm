@@ -166,6 +166,10 @@
             android:name="com.example.ds.GoalSurveyActivity"
             android:label="@string/title_activity_goal_survey" >
         </activity>
+        <activity
+            android:name="com.example.ds.DeviationActivity"
+            android:label="@string/title_activity_deviation" >
+        </activity>
     </application>
 
 </manifest>

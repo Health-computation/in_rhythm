@@ -10,7 +10,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.text.format.DateFormat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +20,16 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import com.androidplot.xy.XYGraphWidget;
 import com.example.ds.BarChart;
+import com.parse.ParseObject;
 
 /**
  * The power zone bar chart.
@@ -41,6 +50,8 @@ public class SleepOverlapChart extends BarChart {
     private static int overlap=0;
     private final Resources mResources;
     public static int visible=0;
+    private int[] mEndTimes = {0, 0, 0, 0, 0, 0, 0};
+    private int[] mStartTimes = {0, 0, 0, 0, 0, 0, 0};
     
   
     
@@ -60,10 +71,35 @@ public class SleepOverlapChart extends BarChart {
         mRulerHeight = (int) (30 * mScaleFactor);
     }
 
+    public void setInformation(List<ParseObject> sleepInformation){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+		Calendar calendar = Calendar.getInstance();
+		for(int i = 0; i < sleepInformation.size(); ++i){
+			ParseObject current = sleepInformation.get(i);
+			Integer sleepDuration = current.getInt("sleepDuration");
+			String sleepStartTime = current.getString("sleepDate");
+			Date result;
+			try {
+				result = df.parse(sleepStartTime);
+				calendar.setTime(result);
+				int startHour = calendar.get(Calendar.HOUR_OF_DAY);
+				int endHour = startHour + sleepDuration;
+				mStartTimes[i] = startHour;
+				mEndTimes[i] = endHour;
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+			
+		}
+    	
+    }
 	@Override
     protected void onDraw(Canvas canvas) {
-        int[] endTimes =    {9, 13, 11, 7, 9, 11, 14};
-        int[] startTimes = {3, 6, 2, 2, 1, 4, 5};
+        int[] endTimes = mEndTimes;
+        int[] startTimes = mStartTimes;
         int chartHeight = getHeight();
         int chartWidth = getWidth();
         int barChartBaseline = chartHeight - mRulerHeight - PADDING_BETWEEN_BUCKETS;

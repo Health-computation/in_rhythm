@@ -3,9 +3,10 @@
 
     <color name="donut">#ecf0f1</color>
     <color name="black">#000000</color>
+    <color name="gray">#808080</color>
 
     <item name="donut_text" type="string">@color/donut</item>
-
+    <item name="user_id" type="integer">3</item>
  
     <string name="loading">PythonAPK running...</string>
     <string name="title">Title</string>
@@ -15,6 +16,7 @@
     <string name="foreground_service_started_aud">Audio service is in the foreground</string>
     <string name="app_id">530721140354975</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_deviation">DeviationActivity</string>
     
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
@@ -89,4 +91,5 @@
     <string name="pilotBadge">Pilot Badge</string>
     <string name="adventurousBadge">Adventurous Badge</string>
     <string name="modernCitizenBadge">Modern Citizen Badge</string>
+
 </resources>

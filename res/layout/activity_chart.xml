@@ -28,9 +28,20 @@
             android:layout_weight=".5" 
             android:layout_height="match_parent"
             android:gravity="center"
-            android:background="@color/white"  
+            android:background="@color/gray"  
             android:textColor="@color/black" 
             android:text="Sleep" 
+            
+            />
+        <TextView
+                                android:id="@+id/deviationText"
+            android:layout_width="0dp"
+            android:layout_weight=".5" 
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/white"  
+            android:textColor="@color/black" 
+            android:text="Deviation" 
             
             />
         
@@ -81,6 +92,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="invisible"/>
+      
+     
      
 
 </RelativeLayout>

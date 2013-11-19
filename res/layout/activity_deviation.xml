@@ -70,7 +70,7 @@
             android:paddingTop="20dp"
             >
         <TextView
-            android:id="@+id/Academics2"
+            android:id="@+id/AcademicsTextView"
             android:text="Academics:"
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
             
             />
         <TextView
-            android:id="@+id/Academics3"
+            android:id="@+id/AcademicsValueTextView"
             android:text="7"
             android:textSize="20sp"
             android:layout_width="wrap_content"
@@ -97,7 +97,7 @@
             android:paddingLeft="20dp"
             android:paddingTop="30dp">
         <TextView
-            android:id="@+id/Social2"
+            android:id="@+id/SocialTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Friends/Family"
@@ -105,7 +105,7 @@
             
             />
         <TextView
-            android:id="@+id/Social3"
+            android:id="@+id/SocialValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 3"
@@ -126,7 +126,7 @@
             android:paddingTop="30dp"
     	    >
         <TextView
-            android:id="@+id/Insomnia2"
+            android:id="@+id/InsomniaTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Insomnia:"
@@ -134,7 +134,7 @@
             android:clickable="false"
             />
         <TextView
-            android:id="@+id/Insomnia3"
+            android:id="@+id/InsomniaValueTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 4"
@@ -155,7 +155,7 @@
             android:paddingTop="30dp"
             >
         <TextView
-            android:id="@+id/Caffeine2"
+            android:id="@+id/CaffeineTextView"
             android:text="Caffeine"
             android:textSize="20sp"
             android:clickable="false" 
@@ -163,7 +163,7 @@
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/Caffeine3"
+            android:id="@+id/CaffeineValueTextView"
             android:text=" 5"
             android:textSize="20sp"
             android:clickable="false" 
@@ -184,7 +184,7 @@
             android:paddingTop="30dp"
             >
          <TextView
-            android:id="@+id/Physical2"
+            android:id="@+id/PhysicalTextView"
             android:text="Physical Wellbeing:"
             android:textSize="20sp"
             android:clickable="false" 
@@ -192,7 +192,7 @@
             android:layout_height="wrap_content"
             />
          <TextView
-            android:id="@+id/Physical3"
+            android:id="@+id/PhysicalValueTextView"
             android:text="6"
             android:textSize="20sp"
             android:clickable="false" 

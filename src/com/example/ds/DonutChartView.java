@@ -1,8 +1,10 @@
 package com.example.ds;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TreeMap;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -12,6 +14,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -62,6 +65,8 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
     private final TreeMap<Integer, ArcInfo> mArcInfos = new TreeMap<Integer, ArcInfo>();
     private int[] mBuckets = {0};
     
+    private ArrayList<RectF> DonutSpace=new ArrayList<RectF>();
+    
     public DonutChartView(Context context) {
         super(context);
         setOnTouchListener(this);
@@ -90,7 +95,8 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
         }
     }
     
-    @Override
+    @SuppressLint("DrawAllocation")
+	@Override
     public void onDraw(Canvas canvas) {
         float size;
         float pivotStartPoint = -90;
@@ -128,6 +134,12 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
                     float outerRadiusOffset = 12.5f * mMult;
                     RectF outerDonutRect = new RectF(xTop + size - outerRadiusOffset, yTop + size - outerRadiusOffset,
                             xBottom - size + outerRadiusOffset, yBottom - size + outerRadiusOffset);
+                    System.out.println("The top is"+outerDonutRect.top);
+                    System.out.println("The bottom is "+outerDonutRect.bottom);
+                    System.out.println("The left is "+outerDonutRect.left);
+                    System.out.println("The right is "+outerDonutRect.right);
+                    DonutSpace.add(outerDonutRect);
+                    
                     textPath.addArc(outerDonutRect, pivotStartPoint, arcLength);
                     // Draw an arc in normal size in highlighted color
                     
@@ -142,6 +154,8 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
                     mPaint.setStrokeWidth(125 * mMult);
 
                     canvas.drawArc(outerDonutRect, pivotStartPoint + 1, arcLength - 2, false, mPaint);
+                    
+                    
 
                     
                 } else {
@@ -204,11 +218,72 @@ public class DonutChartView  extends SleepDonutBaseView implements OnTouchListen
     
     @Override
     public boolean onTouch(View view, MotionEvent event) {
+    	
+    	int index=-1;
+    	if (event.getAction() == MotionEvent.ACTION_DOWN)  {
+    		
+    		float x=event.getX();
+        	float y=event.getY();
+        	System.out.println("X= "+x+","+"Y= "+y);
+        	
+    	  for(int i=0; i<DonutSpace.size();i++){
+    		
+    		if(DonutSpace.get(i).contains(x,y)){
+    			
+    			index=i;
+    			System.out.println("Day="+index);
+    			System.out.println("The top coordinate is"+DonutSpace.get(i).top);
+    			System.out.println("The bottom coordinate is "+DonutSpace.get(i).bottom);
+    			System.out.println("The Left coordinate is "+DonutSpace.get(i).left);
+    			System.out.println("The right coordinate is "+DonutSpace.get(i).right);
+    			
+    			
+    		 }
+    	 }
+    	  
+    	  invalidate();  
+    	
+    	}
+    	
+    	
+    	
     	Intent dataPage = new Intent(SleepProbeApplication2.getAppContext(), DayDataActivity.class);
     	dataPage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     	dataPage.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	if(index!=-1){
     	SleepProbeApplication2.getAppContext().startActivity(dataPage);
+    	}
     	return true;
+    }
+    
+    public int getDay(MotionEvent event){
+    	
+    	int index=-1;
+    		
+    	
+    	
+    	if (event.getAction() == MotionEvent.ACTION_DOWN)  {
+    		
+    		float x=event.getX();
+        	float y=event.getY();
+        	System.out.println("X= "+x+","+"Y= "+y);
+        	
+    	  for(int i=0; i<DonutSpace.size();i++){
+    		
+    		if(DonutSpace.get(i).contains(x,y)){
+    			
+    			System.out.println("i="+i);
+    			return i;
+    			
+    		 }
+    	 }
+    	  
+    	  invalidate();  
+    	
+    	}
+    	
+    	return index;
+    	
     }
     
    

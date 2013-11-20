@@ -23,11 +23,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
 		android:id="@+id/day"
         android:layout_below="@+id/dayQuality"
+        android:orientation="horizontal"
 		 >
+		 
+    <RelativeLayout 
+        android:id="@+id/Feeling1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        >
 
             <ImageButton
     android:id="@+id/ImageButtonG"
@@ -37,6 +44,23 @@
     android:background="@color/white"
     android:onClick="onClickGoal" />
             
+             <TextView
+                 android:id="@+id/Happy"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentBottom="true"
+                 android:layout_below="@+id/ImageButtonG"
+                 android:paddingLeft="19dp"
+                 android:text="@string/Happy"
+                 android:textSize="20sp" />
+            
+     </RelativeLayout>
+     
+    <RelativeLayout 
+        android:id="@+id/Feeling2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+            
             <ImageButton
     android:id="@+id/ImageButtonR"
     android:layout_width="100dp"
@@ -45,26 +69,45 @@
 	android:background="@color/white"
     android:onClick="onClickGoal" />
             
+            <TextView
+                android:id="@+id/Drowsy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/ImageButtonR"
+                android:paddingLeft="20dp"
+                android:text="@string/Drowsy"
+                android:textSize="19sp" />
+            
+   </RelativeLayout>
+   
+     <RelativeLayout 
+        android:id="@+id/Feeling3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+            
+            <TextView 
+                android:id="@+id/Sleepy"
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:layout_below="@+id/ImageButtonB"
+                android:text="@string/Sleepy"
+                android:textSize="19sp" />
+
             <ImageButton
-    android:id="@+id/ImageButtonB"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:src="@drawable/b_ico_small" 
-    android:background="@color/white"
-    android:onClick="onClickGoal" />
+                android:id="@+id/ImageButtonB"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:onClick="onClickGoal"
+                android:src="@drawable/b_ico_small" />
+            
+          </RelativeLayout>
 
         </LinearLayout>
-        
-            <TextView
-        android:id="@+id/deviationTitle"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center"
-        android:text="Why did you miss your goal?"
-                android:layout_below="@+id/day"
-        android:textColor="#33b5e5"
-        android:textSize="25sp"
-		 />
     
         <RelativeLayout
         android:layout_width="280dp"
@@ -157,7 +200,19 @@
         android:gravity="center"
         android:layout_below="@+id/deviationReasons"        
         android:onClick="onClickSubmit"/>
-            
+
+	<TextView
+	    android:id="@+id/deviationTitle"
+	    android:layout_width="match_parent"
+	    android:layout_height="100dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/day"
+	    android:layout_marginTop="18dp"
+	    android:paddingTop="10dp"
+	    android:gravity="center"
+	    android:text="Why did you miss your goal?"
+	    android:textColor="#33b5e5"
+	    android:textSize="25sp" />
 
 </RelativeLayout>
 

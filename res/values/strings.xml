@@ -82,6 +82,9 @@
     <string name="getMoreSleepGoalButton">Get More Sleep</string>
     <string name="title_activity_survey">SurveyActivity</string>
     <string name="title_activity_goal_survey">GoalSurveyActivity</string>
+    <string name="Happy">Happy</string>
+    <string name="Drowsy">Drowsy</string>
+    <string name="Sleepy">Sleepy</string>
 
     <string name="app_name">Badge</string>
     <string name="action_settings">Settings</string>

@@ -15,6 +15,9 @@ public class SleepProbeApplication2 extends ScriptApplication {
 
     private static Context context;
     public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String WAKE_EARLY = "wake_early";
+    public static final String SLEEP_EARLY = "sleep_early";
+    public static final String SLEEP_MORE = "sleep_more";
     
     public SleepProbeApplication2()
     {

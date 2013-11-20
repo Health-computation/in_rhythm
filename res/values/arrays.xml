@@ -27,35 +27,57 @@
         <item>@color/good</item>
         <item>@color/good</item>
     </string-array>
-    
-	<string-array name="wake_early_tips">
-        <item>@color/bad</item>
-    </string-array>
-    
-    <string-array name="sleep_early_tips">
-       <item>Exercise but not right before bedtime</item>
-        <item>You can find more information on healthy sleeping at http://www.gannett.cornell.edu/topics/sleep.cfm</item>
-        <item>Avoid having a heavy meal close to bedtime</item>
-        <item>Establish a "relax and wind down" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
-        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a "to do" list.</item>
-        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time</item>
-        
-    </string-array>    
-    
-    <string-array name="sleep_more_tips"> 
-        <item>The average adult needs 7-9 hours of sleep per day</item>
-        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
-    </string-array>
-    
-        <string-array name="generic_tips"> 
+        <string-array name="wake_early_tips">
+        <item>Take short naps or don’t nap at all. Taking short naps after lunch for a maximum of 15\-30 minutes can boost producvity, but don’t take them too late (such as after 5pm).</item>
+        <item>Don\'t lie around in bed or snooze your alarm, get up and out of bed when you decide to wake up. </item>
         <item>The average adult needs 7\-9 hours of sleep per day</item>
+        <item>Get comfortable. Create a room that\'s ideal for sleeping. Often, this means cool, dark and quiet. Create an environment that suits you, such as using a fan, room darkening shades, or earplugs.</item>
         <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
-      <item>Exercise but not right before bedtime</item>
+        <item>Exercise but not right before bedtime</item>
         <item>Avoid having a heavy meal close to bedtime</item>
         <item>Establish a \"relax and wind down\" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
         <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a \"to do\" list.</item>
-        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time</item>       
-       </string-array>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time.</item>
+    </string-array>
+    <string-array name="sleep_early_tips">
+        <item>Exercise but not right before bedtime</item>
+        <item>You can find more information on healthy sleeping at http://www.gannett.cornell.edu/topics/sleep.cfm</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Avoid	bright lights before bed.</item>
+        <item>Don\’t stare at the clock	in your bedroom while trying to fall asleep or when you wake up in the middle of the night, as it can actually increase stress. Turn your clock\’s face away from you.</item>
+        <item>Keep your curtains/blinds open during the day, and try to move your desk closer to the window to get more sunlight.</item>
+        <item>The average adult needs 7\-9 hours of sleep per day</item>
+        <item>Get comfortable. Create a room that\'s ideal for sleeping. Often, this means cool, dark and quiet. Create an environment that suits you, such as using a fan, room darkening shades, or earplugs.</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+        <item>Exercise but not right before bedtime</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Establish a \"relax and wind down\" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
+        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a \"to do\" list.</item>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time.</item>
+    </string-array>
+    <string-array name="sleep_more_tips">
+        <item>The average adult needs 7\-9 hours of sleep per day</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+         <item>Get comfortable. Create a room that\'s ideal for sleeping. Often, this means cool, dark and quiet. Create an environment that suits you, such as using a fan, room darkening shades, or earplugs.</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+        <item>Exercise but not right before bedtime</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Don’t	stare at the clock	in your bedroom while trying to fall asleep or when you wake up in the middle of the night, as it can actually increase stress. Turn your clock\’s face away from you.</item>
+        <item>Establish a \"relax and wind down\" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
+        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a \"to do\" list.</item>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time.</item>
+    </string-array>
+    <string-array name="generic_tips">
+        <item>The average adult needs 7\-9 hours of sleep per day</item>
+        <item>Get comfortable. Create a room that\'s ideal for sleeping. Often, this means cool, dark and quiet. Create an environment that suits you, such as using a fan, room darkening shades, or earplugs.</item>
+        <item>You may be sleep deprived during the weekdays if you sleep significantly longer on the weekends.</item>
+        <item>Exercise but not right before bedtime</item>
+        <item>Avoid having a heavy meal close to bedtime</item>
+        <item>Establish a \"relax and wind down\" routine. Listen to quiet music, take a hot shower or bath to ease tense muscles and calm your mind</item>
+        <item>Don\'t dwell on worries and frustrations. Stress prevents sleep. Keep a note pad next to your bed to move things out of your mind onto a \"to do\" list.</item>
+        <item>Avoid the sleep stealer: caffeine, nicotine, alcohol, and other drugs. Turn off caffeine by later afternoon, as it can affect sleep up to 8 hours before bed time.</item>
+        <item>Don\’t	stare at the clock	in your bedroom while trying to fall asleep or when you wake up in the middle of the night, as it can actually increase stress. Turn your clock\’s face away from you.</item>
+    </string-array>
     
 <string-array name="survey_colors">
         <item>@color/question</item>

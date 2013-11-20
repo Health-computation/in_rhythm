@@ -124,9 +124,20 @@ public class MainActivity extends SleepActivity{
 			public void onClick(View v){
 			    SharedPreferences settings = getSharedPreferences(SleepProbeApplication2.PREFS_NAME, 0);
 				String goal = settings.getString("currentGoal", null);
+				// Set tips array to appropriate tips list depending on the current goal
 				TypedArray customArr = getResources().obtainTypedArray(R.array.generic_tips);
+				if(goal.equals(SleepProbeApplication2.SLEEP_EARLY)) {
+					customArr = getResources().obtainTypedArray(R.array.sleep_early_tips);
+				}
+				else if(goal.equals(SleepProbeApplication2.SLEEP_MORE)) {
+					customArr = getResources().obtainTypedArray(R.array.sleep_more_tips);
+				}
+				else if(goal.equals(SleepProbeApplication2.WAKE_EARLY)) {
+					customArr = getResources().obtainTypedArray(R.array.wake_early_tips);
+				}
 				int index = (int) (Math.random() * (customArr.length() - 1));					
 				mDialogBuilder.setMessage(customArr.getString(index));
+				customArr.recycle();
 				mDialogBuilder.create().show();
 		    }	
 		});

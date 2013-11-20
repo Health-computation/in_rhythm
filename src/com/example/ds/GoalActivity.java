@@ -3,12 +3,14 @@ package com.example.ds;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -40,6 +42,18 @@ public class GoalActivity extends Activity {
 		wakeUpTimer.setIs24HourView(true);
 		TimePicker setBedTimeGoalPicker =(TimePicker) findViewById(R.id.setBedTimeGoalPicker);
 		setBedTimeGoalPicker.setIs24HourView(true);
+		
+		
+		Button btn = (Button) findViewById(R.id.setTimeButton);
+
+		btn.setOnClickListener(new View.OnClickListener() {
+		    @Override
+		    public void onClick(View v) {
+		    	Log.d("OH","IT WORKS ");
+		    	onWakeUpTimeSet(v);
+		    }
+		});
+		
 	}
 
 	@Override
@@ -49,9 +63,62 @@ public class GoalActivity extends Activity {
 		return true;
 	}
 	
-	public void onWakeUpTimeSet(View v){
+	public void onClick(View v){
+		Log.d("OH","IT WORKS ");
+		SharedPreferences settings = getSharedPreferences(SleepProbeApplication2.PREFS_NAME, 0);
+		
+			
+		
+	      SharedPreferences.Editor editor = settings.edit();	 
+	      TimePicker bedTime = (TimePicker) findViewById(R.id.setBedTimeGoalPicker);
+	      Integer bedTimeMinute = bedTime.getCurrentMinute();
+	      Integer bedTimeHour = bedTime.getCurrentHour();
+ 
+
+	      TimePicker wakeTime = (TimePicker) findViewById(R.id.wakeGoalTimePicker);
+	      Integer wakeTimeMinute = wakeTime.getCurrentMinute();
+	      Integer wakeTimeHour = wakeTime.getCurrentHour();
+   
+
+	      editor.putString("bedTime", bedTimeHour + ":" + bedTimeMinute);
+	      
+	      editor.putString("wakeTime", wakeTimeHour + ":" + wakeTimeMinute);
+	      editor.commit();
+
+	      //startActivity(mainPage);
+		
 		Intent mainPage = new Intent(this, MainActivity.class);
-		startActivity(mainPage);	
+		startActivity(mainPage);
+		Log.d("OH","IT WORKS ");
+	}
+	
+	public void onWakeUpTimeSet(View v){
+		Log.d("OH","IT WORKS ");
+		SharedPreferences settings = getSharedPreferences(SleepProbeApplication2.PREFS_NAME, 0);
+		
+			
+		
+	      SharedPreferences.Editor editor = settings.edit();	 
+	      TimePicker bedTime = (TimePicker) findViewById(R.id.setBedTimeGoalPicker);
+	      Integer bedTimeMinute = bedTime.getCurrentMinute();
+	      Integer bedTimeHour = bedTime.getCurrentHour();
+ 
+
+	      TimePicker wakeTime = (TimePicker) findViewById(R.id.wakeGoalTimePicker);
+	      Integer wakeTimeMinute = wakeTime.getCurrentMinute();
+	      Integer wakeTimeHour = wakeTime.getCurrentHour();
+   
+
+	      editor.putString("bedTime", bedTimeHour + ":" + bedTimeMinute);
+	      
+	      editor.putString("wakeTime", wakeTimeHour + ":" + wakeTimeMinute);
+	      editor.commit();
+
+	      //startActivity(mainPage);
+		
+		Intent mainPage = new Intent(this, MainActivity.class);
+		startActivity(mainPage);
+		Log.d("OH","IT WORKS ");
 	}
 
 }

@@ -35,9 +35,20 @@ public class ChartActivity extends Activity {
 			defaultTab = "LOL";
 		}
 		
-		TextView competeText = (TextView) findViewById(R.id.sleepGraphText);
-		TextView barGraphText = (TextView) findViewById(R.id.barGraphText);
-		TextView deviationText = (TextView) findViewById(R.id.deviationText);			
+		final TextView competeText = (TextView) findViewById(R.id.sleepGraphText);
+		final TextView barGraphText = (TextView) findViewById(R.id.barGraphText);
+		TextView deviationText = (TextView) findViewById(R.id.deviationText);
+		if(!defaultTab.equals("2")){
+		barGraphText.getBackground().setAlpha(255);
+		competeText.getBackground().setAlpha(200);
+		deviationText.getBackground().setAlpha(255);
+		}
+		if(defaultTab.equals("2")){
+		barGraphText.getBackground().setAlpha(200);
+		competeText.getBackground().setAlpha(255);
+		deviationText.getBackground().setAlpha(255);
+		}
+					
 
 		
 		barGraphText.setTypeface(face);
@@ -92,6 +103,8 @@ public class ChartActivity extends Activity {
 				// TODO Auto-generated method stub
 			    	View view =  findViewById(R.id.sleepBarChart);
 			    	view.setVisibility(View.VISIBLE);
+			    	competeText.getBackground().setAlpha(200);
+			    	barGraphText.getBackground().setAlpha(255);
 			    	view = findViewById(R.id.sleepOverlapChart);
 			    	view.setVisibility(View.INVISIBLE);
 			    	
@@ -111,6 +124,8 @@ public class ChartActivity extends Activity {
 				
 				View view = findViewById(R.id.sleepBarChart);
 		    	view.setVisibility(View.INVISIBLE);
+		    	competeText.getBackground().setAlpha(255);
+		    	barGraphText.getBackground().setAlpha(200);
 		    	view = findViewById(R.id.sleepOverlapChart);
 		    	view.setVisibility(View.VISIBLE);
 			    			    

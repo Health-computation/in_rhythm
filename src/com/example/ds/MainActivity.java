@@ -181,6 +181,7 @@ public class MainActivity extends SleepActivity{
 	
     public void launchDataPage(){
 		Intent chartPage = new Intent(this, ChartActivity.class);
+		chartPage.putExtra("activePage", "1");
 		startActivity(chartPage);		
     	
     }

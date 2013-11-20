@@ -35,9 +35,16 @@ public class DeviationActivity extends Activity {
 		setContentView(R.layout.activity_deviation);
 		
 		TextView Rhythm =(TextView) findViewById(R.id.sleepGraphText);
-		TextView Sleep =(TextView) findViewById(R.id.barGraphText);
-
 		Rhythm.setTypeface(face);
+		TextView Sleep =(TextView) findViewById(R.id.barGraphText);
+		Sleep.setTypeface(face);
+		TextView deviationText = (TextView) findViewById(R.id.deviationText);
+		deviationText.setTypeface(face);
+		deviationText.getBackground().setAlpha(200);
+		Rhythm.getBackground().setAlpha(255);
+		Sleep.getBackground().setAlpha(255);
+		
+		
 		
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Deviation");
 		//query.whereEqualTo("user_id", 3);

@@ -18,9 +18,9 @@
             android:layout_weight=".5" 
             android:layout_height="match_parent"
             android:gravity="center"   
-            android:background="@color/black"  
-            android:textColor="@color/white"   
-            android:text="Rhythm"
+            android:background="@color/gray"  
+            android:textColor="@color/black"   
+            android:text="Sleep"
              />
         <TextView
                                 android:id="@+id/barGraphText"
@@ -30,7 +30,7 @@
             android:gravity="center"
             android:background="@color/gray"  
             android:textColor="@color/black" 
-            android:text="Sleep" 
+            android:text="Rhythm" 
             
             />
         <TextView
@@ -39,7 +39,7 @@
             android:layout_weight=".5" 
             android:layout_height="match_parent"
             android:gravity="center"
-            android:background="@color/white"  
+            android:background="@color/gray"  
             android:textColor="@color/black" 
             android:text="Deviation" 
             

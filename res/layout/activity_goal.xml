@@ -81,6 +81,8 @@
         android:text="Confirm" 
         android:gravity="center"
         android:layout_below="@+id/setWakeTime"
-        android:onClick="onWakeUpTimeSet"/>
+        android:clickable="true"
+        android:focusable="false"
+        android:onClick="onClick"/>
 
 </RelativeLayout>
